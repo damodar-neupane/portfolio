@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Damodar Neupane | Development Professional, MEAL Specialist & Writer</title>
+    <meta name="description" content="Official personal website of Damodar Neupane - MEAL Specialist, development professional, researcher, and Nepali-English writer based in Nuwakot, Nepal.">
+    <link rel="canonical" href="https://damodar-neupane.com.np/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E✒️%3C/text%3E%3C/svg%3E">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ['selector', '[data-theme="dark"]'],
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#1f6f5c',
+                            dark: '#144a3d',
+                            light: '#e6f2ee'
+                        },
+                        terracotta: {
+                            DEFAULT: '#b85d34',
+                            light: '#fdf3ed'
+                        },
+                        mark: {
+                            DEFAULT: '#d9961a',
+                            light: '#fcf6eb'
+                        },
+                        ink: {
+                            DEFAULT: '#141c24',
+                            muted: '#526070',
+                            subtle: '#8a99a8'
+                        },
+                        surface: {
+                            light: '#ffffff',
+                            dark: '#121b24',
+                            cardLight: '#f8faf9',
+                            cardDark: '#1a2634'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+                        sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
+                        nepali: ['"Noto Sans Devanagari"', '"Source Sans 3"', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --bg: #f4f6f5;
+            --surface: #ffffff;
+            --card: #f8faf9;
+            --ink: #141c24;
+            --muted: #526070;
+            --line: #d8e0dc;
+            --brand: #1f6f5c;
+            --brand-light: #e6f2ee;
+            --mark: #d9961a;
+        }
+        :root[data-theme="dark"] {
+            --bg: #0b1117;
+            --surface: #121b24;
+            --card: #192532;
+            --ink: #e6edf3;
+            --muted: #91a2b2;
+            --line: #243446;
+            --brand: #43b092;
+            --brand-light: #162f27;
+            --mark: #f0b43c;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--ink);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .bg-surface { background-color: var(--surface); }
+        .bg-card { background-color: var(--card); }
+        .border-line { border-color: var(--line); }
+        .text-muted { color: var(--muted); }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--brand); }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-mark/20 selection:text-ink">
+
+    <!-- Compact Navigation Bar (Exactly 5 items + Theme & Mobile Menu) -->
+    <header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-line transition-colors">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="font-heading font-bold text-xl text-ink tracking-tight flex items-center gap-3 group">
+                <span class="w-9 h-9 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-heading text-base group-hover:bg-brand group-hover:text-white transition-all">DN</span>
+                <div class="flex flex-col">
+                    <span class="leading-tight">Damodar Neupane</span>
+                    <span class="text-xs text-muted font-normal">MEAL &amp; Writer</span>
+                </div>
+            </a>
+
+            <!-- 5 Compact Menu Items -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-semibold">
+                <a href="#home" class="px-3.5 py-2 rounded-lg text-muted hover:text-brand hover:bg-brand/5 transition-all">Home</a>
+                <a href="#about" class="px-3.5 py-2 rounded-lg text-muted hover:text-brand hover:bg-brand/5 transition-all">About</a>
+                <a href="#expertise" class="px-3.5 py-2 rounded-lg text-muted hover:text-brand hover:bg-brand/5 transition-all">Expertise</a>
+                <a href="#publications" class="px-3.5 py-2 rounded-lg text-muted hover:text-brand hover:bg-brand/5 transition-all">Publications</a>
+                <a href="#contact" class="px-3.5 py-2 rounded-lg text-muted hover:text-brand hover:bg-brand/5 transition-all">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" aria-label="Toggle theme" class="p-2.5 rounded-xl border border-line bg-card text-muted hover:text-brand hover:border-brand/50 transition-all focus:outline-none focus:ring-2 focus:ring-mark">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="moon-icon" class="w-5 h-5 block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="menu-btn" aria-label="Toggle Mobile Menu" class="md:hidden p-2.5 rounded-xl border border-line bg-card text-ink focus:outline-none focus:ring-2 focus:ring-mark">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 py-4 border-b border-line bg-surface space-y-2 shadow-xl">
+            <a href="#home" class="block px-4 py-2.5 rounded-lg font-semibold text-muted hover:text-brand hover:bg-brand/5">Home</a>
+            <a href="#about" class="block px-4 py-2.5 rounded-lg font-semibold text-muted hover:text-brand hover:bg-brand/5">About</a>
+            <a href="#expertise" class="block px-4 py-2.5 rounded-lg font-semibold text-muted hover:text-brand hover:bg-brand/5">Expertise</a>
+            <a href="#publications" class="block px-4 py-2.5 rounded-lg font-semibold text-muted hover:text-brand hover:bg-brand/5">Publications</a>
+            <a href="#contact" class="block px-4 py-2.5 rounded-lg font-semibold text-muted hover:text-brand hover:bg-brand/5">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Home / Hero Section -->
+        <section id="home" class="relative overflow-hidden py-20 md:py-32">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand/10 text-brand border border-brand/20">
+                            <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+                            MEAL Specialist &amp; Researcher in Nepal
+                        </div>
+                        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12]">
+                            Turning Evidence into Action for Children &amp; Communities.
+                        </h1>
+                        <p class="text-lg md:text-xl text-muted leading-relaxed font-normal">
+                            I am Damodar Neupane—a development professional with 10+ years of expertise in MEAL framework design, foundational learning assessments (CREDI, IDELA, NARN), health information systems, and bilingual philosophical writing.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="#publications" class="px-7 py-3.5 rounded-xl font-semibold bg-brand text-white shadow-lg shadow-brand/25 hover:bg-brand-dark transition-all focus:ring-4 focus:ring-mark/50">Explore Publications</a>
+                            <a href="#contact" class="px-7 py-3.5 rounded-xl font-semibold border-2 border-line hover:border-brand hover:text-brand transition-all">Get in Touch</a>
+                        </div>
+                        <div class="pt-6 border-t border-line flex flex-wrap items-center gap-6 text-sm text-muted">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <span>Belkotgadhi, Nuwakot, Nepal</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                <span>MEAL Coordinator @ Save the Children</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Portrait & Visual Card -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="absolute -inset-2 bg-gradient-to-tr from-brand/20 to-mark/20 rounded-3xl blur-xl opacity-70"></div>
+                        <div class="relative bg-card border border-line p-8 rounded-3xl shadow-xl space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand to-brand-dark text-white font-heading font-bold text-2xl flex items-center justify-center shadow-md">
+                                    DN
+                                </div>
+                                <div>
+                                    <h2 class="font-heading text-xl font-bold">Damodar Neupane</h2>
+                                    <p class="text-xs text-brand font-semibold uppercase tracking-wider">Development &amp; MEAL Specialist</p>
+                                    <p class="text-xs text-muted mt-0.5">M.A. Sociology, Tribhuvan University</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 pt-2 text-sm text-muted">
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-surface border border-line">
+                                    <span class="font-medium">Core Focus</span>
+                                    <span class="font-semibold text-ink">MEAL &amp; Learning Systems</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-surface border border-line">
+                                    <span class="font-medium">Experience</span>
+                                    <span class="font-semibold text-ink">10+ Years in INGOs/Projects</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-surface border border-line">
+                                    <span class="font-medium">Writing</span>
+                                    <span class="font-semibold text-ink">Kantipur &amp; Philosophical Blogs</span>
+                                </div>
+                            </div>
+                            <div class="pt-2">
+                                <a href="#about" class="block w-full text-center py-3 rounded-xl font-semibold bg-brand/10 text-brand hover:bg-brand hover:text-white transition-all text-sm">Read Full Background &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="py-24 bg-surface border-t border-line">
+            <div class="max-w-6xl mx-auto px-6 space-y-16">
+                <div class="max-w-3xl">
+                    <span class="text-xs font-bold text-brand uppercase tracking-wider">Background &amp; Journey</span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mt-2">Dedicated to Rigorous Evidence &amp; Societal Progress</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    <div class="lg:col-span-7 space-y-6 text-muted text-lg leading-relaxed">
+                        <p>
+                            I am a results-driven <strong class="text-ink">MEAL (Monitoring, Evaluation, Accountability and Learning)</strong> professional with over 10 years of experience designing and leading multi-thematic education and health programs in Nepal.
+                        </p>
+                        <p>
+                            My professional journey centers on foundational literacy, numeracy, and holistic early childhood development. I design and oversee rigorous baseline, midline, and endline evaluations utilizing standardized global frameworks such as <strong class="text-ink">CREDI</strong> and <strong class="text-ink">IDELA</strong>, alongside Nepal's national learning assessment tools (<strong class="text-ink">NARN</strong>).
+                        </p>
+                        <p>
+                            Beyond technical M&amp;E, I am deeply passionate about knowledge management, policy advisory, and philosophical reflection. Holding a Master's degree in Sociology from Tri-Chandra College, Tribhuvan University, my research and writing examine the intersection of Eastern philosophy, technology, and modern social dynamics in Nepal.
+                        </p>
+                    </div>
+
+                    <!-- Key Stats & Education Summary -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="bg-card border border-line p-6 rounded-2xl shadow-sm space-y-4">
+                            <h3 class="font-heading text-xl font-bold">Key Milestones</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-4 rounded-xl bg-surface border border-line">
+                                    <span class="font-heading text-3xl font-bold text-brand block">10+</span>
+                                    <span class="text-xs text-muted font-medium">Years in MEAL &amp; Dev</span>
+                                </div>
+                                <div class="p-4 rounded-xl bg-surface border border-line">
+                                    <span class="font-heading text-3xl font-bold text-brand block">14</span>
+                                    <span class="text-xs text-muted font-medium">Municipalities Supported</span>
+                                </div>
+                                <div class="p-4 rounded-xl bg-surface border border-line">
+                                    <span class="font-heading text-3xl font-bold text-brand block">M.A.</span>
+                                    <span class="text-xs text-muted font-medium">Sociology, T.U. (2019)</span>
+                                </div>
+                                <div class="p-4 rounded-xl bg-surface border border-line">
+                                    <span class="font-heading text-3xl font-bold text-brand block">15+</span>
+                                    <span class="text-xs text-muted font-medium">Major Evaluations Led</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Timeline Preview / Experience Accordion Trigger -->
+                        <div class="bg-card border border-line p-6 rounded-2xl shadow-sm space-y-3">
+                            <h3 class="font-heading text-lg font-bold">Current Leadership</h3>
+                            <p class="text-sm text-muted">Serving as <strong class="text-ink">MEAL Coordinator</strong> at Save the Children (Bardibas Field Office), providing strategic oversight for sponsorship and programmatic awards.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Experience Detailed Section -->
+                <div class="pt-12 border-t border-line space-y-8">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-brand uppercase tracking-wider">Career Track</span>
+                            <h3 class="font-heading text-2xl md:text-3xl font-bold mt-1">Professional Experience</h3>
+                        </div>
+                        <p class="text-sm text-muted">Demonstrated impact across international NGOs and national health initiatives.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-6">
+                        <!-- Experience Item 1 -->
+                        <div class="bg-card border border-line p-6 sm:p-8 rounded-2xl shadow-sm space-y-4 hover:border-brand/50 transition-all">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                                <div>
+                                    <h4 class="font-heading text-xl font-bold text-ink">MEAL Coordinator</h4>
+                                    <p class="text-brand font-semibold text-sm">Save the Children, Bardibas Field Office</p>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand/10 text-brand w-fit">Oct 2023 – Present</span>
+                            </div>
+                            <ul class="list-disc pl-5 space-y-2 text-muted text-sm leading-relaxed">
+                                <li>Lead the design and oversight of project evaluations, including Terms of Reference, methodology, and actionable reporting.</li>
+                                <li>Design and run baseline, midline, and endline studies incorporating foundational literacy and numeracy assessments (CREDI, IDELA, NARN).</li>
+                                <li>Facilitate structured learning platforms such as <strong class="text-ink">Learning Friday</strong> to build a robust data-to-action institutional culture.</li>
+                                <li>Strengthen feedback and response mechanisms, ensuring community voices directly shape programmatic adaptations.</li>
+                                <li>Build partner capacity in MEAL systems, data verification, and rigorous impact reporting standards.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Experience Item 2 -->
+                        <div class="bg-card border border-line p-6 sm:p-8 rounded-2xl shadow-sm space-y-4 hover:border-brand/50 transition-all">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                                <div>
+                                    <h4 class="font-heading text-xl font-bold text-ink">Senior Monitoring and Evaluation Officer</h4>
+                                    <p class="text-brand font-semibold text-sm">Population Services International (PSI) Nepal, Maternal and Newborn Health Project</p>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand/10 text-brand w-fit">Jun 2023 – Sep 2023</span>
+                            </div>
+                            <ul class="list-disc pl-5 space-y-2 text-muted text-sm leading-relaxed">
+                                <li>Provided technical M&amp;E and MIS support, mentoring facility-level health staff.</li>
+                                <li>Managed DHIS2 and PSI/Nepal MIS infrastructure, conducting rigorous data quality audits and digital tool orientations.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Experience Item 3 -->
+                        <div class="bg-card border border-line p-6 sm:p-8 rounded-2xl shadow-sm space-y-4 hover:border-brand/50 transition-all">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                                <div>
+                                    <h4 class="font-heading text-xl font-bold text-ink">Senior Technical Officer, Health Information Systems</h4>
+                                    <p class="text-brand font-semibold text-sm">Save the Children International, USAID Strengthening Systems for Better Health (SSBH)</p>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand/10 text-brand w-fit">Nov 2018 – Feb 2023</span>
+                            </div>
+                            <ul class="list-disc pl-5 space-y-2 text-muted text-sm leading-relaxed">
+                                <li>Assisted 14 municipalities across Humla and Nawalparasi West in formulating municipal Health Acts, Health Policies, and Disaster Preparedness Plans.</li>
+                                <li>Championed digital health information systems (DHIS2, eLMIS, web municipal profiles) for evidence-informed local budgeting and planning.</li>
+                                <li>Conducted health facility assessments (MSS, RDQA) and co-authored technical briefs on health information systems and GESI.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Earlier Experience summary / dropdown -->
+                        <div class="bg-card border border-line p-6 rounded-xl text-center">
+                            <p class="text-sm text-muted">Earlier roles include Multi-Sector Nutrition Plan (MSNP) coordination with HERD International in Mugu &amp; Bajura, research supervision with Oxford Policy Management, and integrated community forestry projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Expertise Section -->
+        <section id="expertise" class="py-24 border-t border-line">
+            <div class="max-w-6xl mx-auto px-6 space-y-16">
+                <div class="max-w-3xl">
+                    <span class="text-xs font-bold text-brand uppercase tracking-wider">Capabilities &amp; Competencies</span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mt-2">Technical Expertise &amp; Methodological Rigor</h2>
+                    <p class="text-muted mt-3 text-lg">Combining advanced research methodologies with digital monitoring tools to drive international development excellence.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-surface border border-line p-8 rounded-2xl shadow-sm space-y-4 hover:border-brand transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-heading font-bold text-xl group-heading group-hover:bg-brand group-hover:text-white transition-all">
+                            01
+                        </div>
+                        <h3 class="font-heading text-xl font-bold">MEAL Framework Design</h3>
+                        <p class="text-muted text-sm leading-relaxed">
+                            Comprehensive Terms of Reference (ToR), logical frameworks, indicator tracking matrices, baseline-midline-endline evaluations, and quality benchmarking.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-surface border border-line p-8 rounded-2xl shadow-sm space-y-4 hover:border-brand transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-heading font-bold text-xl group-heading group-hover:bg-brand group-hover:text-white transition-all">
+                            02
+                        </div>
+                        <h3 class="font-heading text-xl font-bold">Learning Assessments</h3>
+                        <p class="text-muted text-sm leading-relaxed">
+                            Specialized proficiency in measuring foundational literacy, numeracy, and early childhood development using standardized tools like <strong class="text-ink">CREDI</strong>, <strong class="text-ink">IDELA</strong>, and <strong class="text-ink">NARN</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-surface border border-line p-8 rounded-2xl shadow-sm space-y-4 hover:border-brand transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-heading font-bold text-xl group-heading group-hover:bg-brand group-hover:text-white transition-all">
+                            03
+                        </div>
+                        <h3 class="font-heading text-xl font-bold">Data Systems &amp; Analytics</h3>
+                        <p class="text-muted text-sm leading-relaxed">
+                            Advanced competency in Routine Data Quality Assessments (<strong class="text-ink">RDQA</strong>), <strong class="text-ink">DHIS2</strong>, eLMIS, Kobo Toolbox, advanced Excel, and Power BI dashboards.
+                        </p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-surface border border-line p-8 rounded-2xl shadow-sm space-y-4 hover:border-brand transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-heading font-bold text-xl group-heading group-hover:bg-brand group-hover:text-white transition-all">
+                            04
+                        </div>
+                        <h3 class="font-heading text-xl font-bold">Accountability &amp; Feedback</h3>
+                        <p class="text-muted text-sm leading-relaxed">
+                            Designing robust feedback and response mechanisms (FRM), community scorecards, social audits, and rights-holder engagement protocols.
+                        </p>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-surface border border-line p-8 rounded-2xl shadow-sm space-y-4 hover:border-brand transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-heading font-bold text-xl group-heading group-hover:bg-brand group-hover:text-white transition-all">
+                            05
+                        </div>
+                        <h3 class="font-heading text-xl font-bold">Qualitative &amp; Action Research</h3>
+                        <p class="text-muted text-sm leading-relaxed">
+                            Expertise in qualitative protocols (FGD, IDI), participatory rural appraisals, GESI integration, and translating research findings into actionable briefs.
+                        </p>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="bg-surface border border-line p-8 rounded-2xl shadow-sm space-y-4 hover:border-brand transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-heading font-bold text-xl group-heading group-hover:bg-brand group-hover:text-white transition-all">
+                            06
+                        </div>
+                        <h3 class="font-heading text-xl font-bold">Capacity Building &amp; Training</h3>
+                        <p class="text-muted text-sm leading-relaxed">
+                            Facilitating Train-of-Trainer (ToT) sessions, municipal health planning workshops, and mentoring local enumerators and partner NGO staff.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Languages & Tools Badges -->
+                <div class="bg-card border border-line p-8 rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h3 class="font-heading text-xl font-bold">Software &amp; Tools</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3.5 py-1.5 rounded-lg bg-surface border border-line text-sm font-medium">DHIS2</span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-surface border border-line text-sm font-medium">Power BI</span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-surface border border-line text-sm font-medium">Kobo Toolbox</span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-surface border border-line text-sm font-medium">Advanced Excel</span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-surface border border-line text-sm font-medium">CREDI &amp; IDELA</span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-surface border border-line text-sm font-medium">eLMIS</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-heading text-xl font-bold">Languages</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3.5 py-1.5 rounded-lg bg-surface border border-line text-sm font-medium">Nepali (Native / Very Good)</span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-surface border border-line text-sm font-medium">English (Professional / Good)</span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-surface border border-line text-sm font-medium">Hindi (Reading &amp; Listening)</span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-surface border border-line text-sm font-medium">Karnali Dialect (Comprehension)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Publications / Ideas & Reflections Section -->
+        <section id="publications" class="py-24 bg-surface border-t border-line">
+            <div class="max-w-6xl mx-auto px-6 space-y-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div class="max-w-2xl">
+                        <span class="text-xs font-bold text-brand uppercase tracking-wider">Editorial &amp; Essays</span>
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold mt-2">Publications, Philosophy &amp; Essays</h2>
+                        <p class="text-muted mt-3 text-lg">Exploring national discourse, Eastern philosophy, Nyaya tradition, and societal reflections in Nepali and English.</p>
+                    </div>
+                    <!-- Category Filter Buttons -->
+                    <div class="flex flex-wrap gap-2" role="group" aria-label="Publication Categories">
+                        <button type="button" class="pub-filter active px-4 py-2 rounded-xl text-sm font-semibold bg-brand text-white shadow-sm transition-all" data-filter="all">All Works</button>
+                        <button type="button" class="pub-filter px-4 py-2 rounded-xl text-sm font-semibold bg-card border border-line text-muted hover:text-brand transition-all" data-filter="opinion">Opinion Pieces</button>
+                        <button type="button" class="pub-filter px-4 py-2 rounded-xl text-sm font-semibold bg-card border border-line text-muted hover:text-brand transition-all" data-filter="philosophy">Philosophy &amp; Nyaya</button>
+                        <button type="button" class="pub-filter px-4 py-2 rounded-xl text-sm font-semibold bg-card border border-line text-muted hover:text-brand transition-all" data-filter="society">Society &amp; Gen Z</button>
+                    </div>
+                </div>
+
+                <!-- Publications Grid -->
+                <div id="pub-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Item 1: Kantipur Opinion -->
+                    <article class="pub-card bg-card border border-line p-6 rounded-2xl shadow-sm flex flex-col justify-between space-y-4 hover:border-brand transition-all" data-category="opinion">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="px-2.5 py-1 rounded-md bg-brand/10 text-brand font-semibold">Opinion Piece</span>
+                                <span class="text-muted">October 2026</span>
+                            </div>
+                            <h3 class="font-heading text-xl font-bold font-nepali leading-snug">
+                                <a href="https://ekantipur.com/opinion/2026/10/01/what-happens-to-our-digital-identity-after-death-24-00.html" target="_blank" rel="noopener" class="hover:text-brand transition-colors">
+                                    मृत्युपछि पनि जीवित रहने डिजिटल पहिचान
+                                </a>
+                            </h3>
+                            <p class="text-muted text-sm line-clamp-3">
+                                Published in <strong class="text-ink">Kantipur</strong> (विचार / Opinion). An analytical exploration of digital footprints, online legacy, and what happens to our digital identity after death.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-line flex items-center justify-between">
+                            <span class="text-xs text-muted font-medium">Kantipur Daily</span>
+                            <a href="https://ekantipur.com/opinion/2026/10/01/what-happens-to-our-digital-identity-after-death-24-00.html" target="_blank" rel="noopener" class="text-sm font-semibold text-brand hover:underline flex items-center gap-1">Read Article &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Item 2: Nyaya Philosophy 1 -->
+                    <article class="pub-card bg-card border border-line p-6 rounded-2xl shadow-sm flex flex-col justify-between space-y-4 hover:border-brand transition-all" data-category="philosophy">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="px-2.5 py-1 rounded-md bg-terracotta/10 text-terracotta font-semibold">Philosophy</span>
+                                <span class="text-muted">10 Sep 2026</span>
+                            </div>
+                            <h3 class="font-heading text-xl font-bold font-nepali leading-snug">
+                                <a href="https://dnsharma.blogspot.com/2026/09/blog-post.html" target="_blank" rel="noopener" class="hover:text-brand transition-colors">
+                                    शास्त्रार्थको कथा: न्याय दर्शनका १६ पदार्थको यात्रा
+                                </a>
+                            </h3>
+                            <p class="text-muted text-sm line-clamp-3">
+                                A profound narrative journey through the 16 categories (Padarthas) of Nyaya philosophy and classical logical debate.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-line flex items-center justify-between">
+                            <span class="text-xs text-muted font-medium">dnsharma.blogspot.com</span>
+                            <a href="https://dnsharma.blogspot.com/2026/09/blog-post.html" target="_blank" rel="noopener" class="text-sm font-semibold text-brand hover:underline flex items-center gap-1">Read Blog &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Item 3: Nyaya Philosophy 2 -->
+                    <article class="pub-card bg-card border border-line p-6 rounded-2xl shadow-sm flex flex-col justify-between space-y-4 hover:border-brand transition-all" data-category="philosophy">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="px-2.5 py-1 rounded-md bg-terracotta/10 text-terracotta font-semibold">Philosophy</span>
+                                <span class="text-muted">16 Aug 2026</span>
+                            </div>
+                            <h3 class="font-heading text-xl font-bold font-nepali leading-snug">
+                                <a href="https://dnsharma.blogspot.com/2026/08/blog-post_16.html" target="_blank" rel="noopener" class="hover:text-brand transition-colors">
+                                    प्रश्नको चक्रव्यूह: न्याय दर्शन र अनुत्तरित आधुनिकता
+                                </a>
+                            </h3>
+                            <p class="text-muted text-sm line-clamp-3">
+                                The labyrinth of questions: Examining classical Nyaya epistemology in dialogue with unanswered modern dilemmas.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-line flex items-center justify-between">
+                            <span class="text-xs text-muted font-medium">dnsharma.blogspot.com</span>
+                            <a href="https://dnsharma.blogspot.com/2026/08/blog-post_16.html" target="_blank" rel="noopener" class="text-sm font-semibold text-brand hover:underline flex items-center gap-1">Read Blog &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Item 4: Gen Z & Society -->
+                    <article class="pub-card bg-card border border-line p-6 rounded-2xl shadow-sm flex flex-col justify-between space-y-4 hover:border-brand transition-all" data-category="society">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="px-2.5 py-1 rounded-md bg-mark/10 text-mark font-semibold">Society &amp; Youth</span>
+                                <span class="text-muted">2 Jun 2026</span>
+                            </div>
+                            <h3 class="font-heading text-xl font-bold font-nepali leading-snug">
+                                <a href="https://dnsharma.blogspot.com/2026/06/gen-z.html" target="_blank" rel="noopener" class="hover:text-brand transition-colors">
+                                    जेन्जी (Gen Z) को दृष्टिमा नेपाल: असन्तुष्टि, राजनीतिक अविश्वास र देशान्तरण
+                                </a>
+                            </h3>
+                            <p class="text-muted text-sm line-clamp-3">
+                                Analyzing Nepal through the lens of Gen Z: Discontent, political skepticism, and the psychology of out-migration.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-line flex items-center justify-between">
+                            <span class="text-xs text-muted font-medium">dnsharma.blogspot.com</span>
+                            <a href="https://dnsharma.blogspot.com/2026/06/gen-z.html" target="_blank" rel="noopener" class="text-sm font-semibold text-brand hover:underline flex items-center gap-1">Read Blog &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Item 5: Yoga & Aging -->
+                    <article class="pub-card bg-card border border-line p-6 rounded-2xl shadow-sm flex flex-col justify-between space-y-4 hover:border-brand transition-all" data-category="society">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="px-2.5 py-1 rounded-md bg-mark/10 text-mark font-semibold">Society &amp; Health</span>
+                                <span class="text-muted">21 Jun 2026</span>
+                            </div>
+                            <h3 class="font-heading text-xl font-bold font-nepali leading-snug">
+                                <a href="https://dnsharma.blogspot.com/2026/06/blog-post_21.html" target="_blank" rel="noopener" class="hover:text-brand transition-colors">
+                                    अन्तर्राष्ट्रिय योग दिवस २०२६: स्वस्थ वृद्धावस्थाका लागि योग
+                                </a>
+                            </h3>
+                            <p class="text-muted text-sm line-clamp-3">
+                                International Yoga Day 2026: The therapeutic role of yoga in promoting healthy and mindful aging in Nepali society.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-line flex items-center justify-between">
+                            <span class="text-xs text-muted font-medium">dnsharma.blogspot.com</span>
+                            <a href="https://dnsharma.blogspot.com/2026/06/blog-post_21.html" target="_blank" rel="noopener" class="text-sm font-semibold text-brand hover:underline flex items-center gap-1">Read Blog &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Item 6: Dreams & Memory -->
+                    <article class="pub-card bg-card border border-line p-6 rounded-2xl shadow-sm flex flex-col justify-between space-y-4 hover:border-brand transition-all" data-category="philosophy">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="px-2.5 py-1 rounded-md bg-terracotta/10 text-terracotta font-semibold">Philosophy</span>
+                                <span class="text-muted">9 Jun 2026</span>
+                            </div>
+                            <h3 class="font-heading text-xl font-bold font-nepali leading-snug">
+                                <a href="https://dnsharma.blogspot.com/2026/06/blog-post_09.html" target="_blank" rel="noopener" class="hover:text-brand transition-colors">
+                                    सपनाका दुई अध्याय : ऋण, स्मृति र जीवनका अदृश्य सन्देशहरू
+                                </a>
+                            </h3>
+                            <p class="text-muted text-sm line-clamp-3">
+                                Two chapters of dreams: Debt, memory, and the unseen psychological messages embedded in everyday life.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-line flex items-center justify-between">
+                            <span class="text-xs text-muted font-medium">dnsharma.blogspot.com</span>
+                            <a href="https://dnsharma.blogspot.com/2026/06/blog-post_09.html" target="_blank" rel="noopener" class="text-sm font-semibold text-brand hover:underline flex items-center gap-1">Read Blog &rarr;</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- External Blog Link Box -->
+                <div class="bg-card border border-line p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-1 text-center md:text-left">
+                        <h3 class="font-heading text-xl font-bold">Looking for more essays and reflections?</h3>
+                        <p class="text-muted text-sm">Explore archives on Eastern philosophy, yoga, travelogues, and society on my personal blog.</p>
+                    </div>
+                    <a href="https://dnsharma.blogspot.com/" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl font-semibold bg-brand text-white shadow-md hover:bg-brand-dark transition-all whitespace-nowrap">Visit dnsharma.blogspot.com &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Section -->
+        <section id="contact" class="py-24 border-t border-line">
+            <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+                <span class="text-xs font-bold text-brand uppercase tracking-wider">Get in Touch</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold">Let's Connect &amp; Collaborate</h2>
+                <p class="text-muted text-lg max-w-2xl mx-auto">
+                    Open to professional inquiries regarding MEAL frameworks, program evaluations, foundational learning research, and writing collaborations.
+                </p>
+
+                <div class="pt-4">
+                    <a href="mailto:deardnsharma@gmail.com" class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-brand hover:underline break-all">deardnsharma@gmail.com</a>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 pt-4">
+                    <a href="https://www.linkedin.com/in/damodar-neupane-7b434657" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl font-semibold bg-surface border border-line hover:border-brand hover:text-brand transition-all flex items-center gap-2">
+                        <span>LinkedIn Profile</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <a href="https://dnsharma.blogspot.com" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl font-semibold bg-surface border border-line hover:border-brand hover:text-brand transition-all flex items-center gap-2">
+                        <span>Personal Blog</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <a href="https://twitter.com/NeupaneDamodar" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl font-semibold bg-surface border border-line hover:border-brand hover:text-brand transition-all flex items-center gap-2">
+                        <span>Twitter / X</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+
+                <div class="pt-8 text-sm text-muted">
+                    <p>📍 Belkotgadhi Municipality-02, Nuwakot, Nepal</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-line py-10 text-center text-sm text-muted bg-surface">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; <span id="current-year">2026</span> Damodar Neupane. All rights reserved.</p>
+            <p class="text-xs">Hosted on Vercel &bull; Cloudflare DNS &bull; damodar-neupane.com.np</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const htmlElement = document.documentElement;
+
+        // Check local storage or system preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcons(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcons(newTheme);
+        });
+
+        function updateThemeIcons(theme) {
+            if (theme === 'dark') {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        }
+
+        // Publications Filter Logic
+        const filterBtns = document.querySelectorAll('.pub-filter');
+        const pubCards = document.querySelectorAll('.pub-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button styles
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand', 'text-white', 'shadow-sm');
+                    b.classList.add('bg-card', 'border', 'border-line', 'text-muted');
+                });
+                btn.classList.remove('bg-card', 'border', 'border-line', 'text-muted');
+                btn.classList.add('bg-brand', 'text-white', 'shadow-sm');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                pubCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filterValue === 'all' || category === filterValue) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
